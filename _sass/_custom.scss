@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'unicorns';
+    src: url('../fonts/unicorns_are_awesome.ttf') format('truetype');
+    src: url('../fonts/unicorns_are_awesome.otf') format('opentype');
+}
+
+$pink: rgb(255, 17, 136);
+$white:    #fff;
+$kuty: $pink;
+
+$body-color: $pink;
+$transparency: .7;
+$white-tr: rgba(255, 255, 255, $transparency);
+
+$theme-colors: (
+  "kuty": $kuty,
+);
+
+$card-bg:                $white-tr;
+$pagination-bg:          $white-tr;
+$pagination-disabled-bg: $white-tr;
+
+$link-color: map-get($theme-colors, "kuty");
+$component-active-bg: map-get($theme-colors, "kuty");
+
+$navbar-dark-color:                 rgba($white, .8) !default;
+$navbar-dark-hover-color:           rgba($white, .9) !default;
+$navbar-dark-active-color:          $white !default;
+
+$font-family-sans-serif: 'unicorns', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-size-base: 1.5rem !default; // Assumes the browser default, typically `16px`

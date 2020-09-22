@@ -1,0 +1,33 @@
+---
+layout: default
+title: Contact
+---
+<main class="container bg-light p-3">
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <div id="map"></div>
+    </div>
+    <div class="col-12 col-sm-6">
+      <form>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<script type="text/javascript">
+function initMap() {
+    var location = {lat: 44.403910, lng: 0.701489};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 11,
+      center: location
+    });
+    var marker = new google.maps.Marker({
+      position: location,
+      map: map
+    });
+  }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX7aT6Bl2y4VK1qKy4W9oI2xq1M9n05rQ&callback=initMap">
+</script>

@@ -1,0 +1,17 @@
+<nav class="navbar navbar-dark bg-info navbar-expand-lg{{ include.navbar_class }}">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
+          aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-md-center" id="main-navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a id="kuty-nav" class="navbar-brand" href="/">{{ site.title }}</a>
+      </li>
+      {% include navbar_item.html url='/gallerie'    label='Gallerie'    %}
+      {% include navbar_item.html url='/prestations' label='Prestations' %}
+      {% include navbar_item.html url='/contact'     label='Contact'     %}
+    </ul>
+  </div>
+</nav>
