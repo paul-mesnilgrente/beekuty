@@ -3,17 +3,37 @@ layout: default
 title: Gallerie
 ---
 <div class="container">
-  <div id="gallerie" class="card-columns">
-    <div class="card text-center">
-      <img class="card-img" src="/assets/images/nailarts/nailart.jpg" alt="My photo" />
-      <div class="card-body pt-1">
-        <h5 class="card-title mb-0">My photo</h5>
-        <footer class="blockquote-footer">
-          <small class="text-muted">
-            03/02/1993
-          </small>
-        </footer>
-      </div>
+  <div id="gallery" class="grid">
+    <div class="grid-sizer"></div>
+    <div class="gutter-sizer"></div>
+    <div class="grid-item">
+      {% include gallery_card.html src="/assets/images/nailarts/nailart.jpg" title="My photo" date="03/02/1993" %}
+    </div>
+
+    <div class="grid-item grid-item--width2">
+      {% include gallery_card.html src="/assets/images/nailarts/nailart.jpg" title="My photo" date="03/02/1993" %}
+    </div>
+
+    <div class="grid-item grid-item--height2">
+      {% include gallery_card.html src="/assets/images/nailarts/nailart.jpg" title="My photo" date="03/02/1993" %}
+    </div>
+
+    <div class="grid-item">
+      {% include gallery_card.html src="/assets/images/nailarts/nailart.jpg" title="My photo" date="03/02/1993" %}
     </div>
   </div>
 </div>
+
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+<script type="text/javascript">
+  // element argument can be a selector string
+  //   for an individual element
+  var msnry = new Masonry( '.grid', {
+    // options
+    itemSelector: '.grid-item',
+    columnWidth: '.grid-sizer',
+    percentPosition: true,
+    gutter: '.gutter-sizer'
+  });
+</script>
