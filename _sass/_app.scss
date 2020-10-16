@@ -35,6 +35,14 @@ header {
 #prestations .card {
   .list-group-item {
     background: none;
+
+    .list-group-item {
+      padding: 0;
+      border: none;
+      span {
+        margin-left: 1rem;
+      }
+    }
   }
   h5 {
     font-weight: bold;
@@ -46,6 +54,14 @@ header {
 #gallery {
   .card {
     border: none;
+
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+    // img {
+    // }
+
   }
   $column-width: 22%;
 
