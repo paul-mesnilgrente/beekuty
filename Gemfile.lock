@@ -31,7 +31,6 @@ GEM
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.13.1)
-    flickr (2.0.2)
     forwardable-extended (2.6.0)
     gemoji (3.0.1)
     github-pages (207)
@@ -199,6 +198,8 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
+    launchy (2.5.0)
+      addressable (~> 2.7)
     liquid (4.0.3)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -262,8 +263,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  flickr
+  faraday
   github-pages
+  launchy
   pry-byebug
 
 BUNDLED WITH

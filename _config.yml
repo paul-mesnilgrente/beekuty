@@ -38,3 +38,4 @@ exclude:
   - vendor/ruby/
   - vendor/ruby/
   - scripts
+  - .env

@@ -1,34 +1,87 @@
 #!/usr/bin/env ruby
 
-require_relative 'flickr_auth'
+require 'faraday'
+require 'json'
+require 'yaml'
 require 'pry'
+require 'launchy'
+require 'date'
 
-flickr = flickr_auth
+# visit
+unless ENV['INSTAGRAM_ACCESS_CODE']
+  params = [
+    "client_id=#{ENV['INSTAGRAM_APP_ID']}",
+    "redirect_uri=https://beekuty.fr/auth",
+    "scope=user_profile,user_media",
+    "response_type=code"
+  ]
+  Launchy.open("https://api.instagram.com/oauth/authorize?#{params.join('&')}")
 
-binding.pry
+  print 'Please enter the code (excluding #): '
+  code = gets.chomp
 
-albums = flickr.photosets.getList()
+  codesResponse = Faraday.post('https://api.instagram.com/oauth/access_token', {
+    client_id: ENV['INSTAGRAM_APP_ID'],
+    client_secret: ENV['INSTAGRAM_APP_SECRET'],
+    grant_type: 'authorization_code',
+    redirect_uri: 'https://beekuty.fr/auth',
+    code: code
+  })
 
-sorted_albums = {}
-albums.each { |album| sorted_albums[album.title] = album }
-sorted_albums = sorted_albums.sort_by { |key| key }.reverse.to_h
-
-gallery_photos = []
-sorted_albums.values.each do |album|
-  photo_sizes = flickr.photos.getSizes(photo_id: album.primary)
-
-  sizes = {}
-  photo_sizes.each do |photo_size|
-    sizes[photo_size.label.downcase.gsub(' ', '_')] = {
-      width: photo_size.width,
-      height: photo_size.height,
-      source: photo_size.source,
-      url: photo_size.url
-    }
+  # Exchanging the code against a token:
+  response_json = JSON.parse(codesResponse.body)
+  unless response_json['access_token']
+    puts "ERROR when getting the access_token with #{ENV['INSTAGRAM_AUTH_CODE']}"
+    puts response_json
+    exit 1
   end
-  gallery_photos << sizes
+
+  puts ''
+  puts 'Please run:'
+  puts "export INSTAGRAM_ACCESS_TOKEN=#{response_json['access_token']}"
+  puts "export INSTAGRAM_USER_ID=#{response_json['user_id']}"
+  puts "And run the script again"
+
+  exit 0
 end
 
-File.write('_data/gallery.yaml', gallery_photos.to_yaml)
+# get the media
+mediasResponse = Faraday.get('https://graph.instagram.com/me/media', {
+  fields: 'id,children,caption,media_type,media_url,timestamp',
+  access_token: ENV['INSTAGRAM_ACCESS_TOKEN']
+})
 
-puts "THE END"
+allMedias = JSON.parse(mediasResponse.body)
+
+################
+# ADD PAGINATION
+################
+data = []
+allMedias['data'].each do |media|
+  if media['media_type'] == 'IMAGE'
+    data << {
+      'media_type' => 'image',
+      'url' => media['media_url'],
+      'date' => Date.parse(media['timestamp']).strftime('%d/%m/%Y')
+    }
+  elsif media['media_type'] == 'CAROUSEL_ALBUM'
+    children = []
+    media['children']['data'].each do |child|
+      childResponse = Faraday.get("https://graph.instagram.com/#{child['id']}", {
+        fields: 'media_url',
+        access_token: ENV['INSTAGRAM_ACCESS_TOKEN']
+      })
+      children << JSON.parse(childResponse.body)['media_url']
+    end
+    data << {
+      'type' => 'album',
+      'url' => media['media_url'],
+      'date' => Date.parse(media['timestamp']).strftime('%d/%m/%Y'),
+      'children' => children
+    }
+  end
+end
+
+File.write('_data/gallery.yaml', data.to_yaml)
+
+puts 'The end'
