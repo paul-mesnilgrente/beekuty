@@ -1,0 +1,27 @@
+---
+layout: default
+title: Auth
+---
+<main class="container bg-light p-3">
+  <form>
+    <div class="form-group row">
+      <label for="code" class="col-sm-2 col-form-label">Auth code</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="code" value="" autofocus>
+      </div>
+    </div>
+  </form>
+</main>
+
+<script>
+  $(function() {
+    var code = /\/auth\?code=(.*)#_/g.exec(window.location.href)[1]
+    var input = document.querySelector('input#code')
+    input.value = code;
+    input.setSelectionRange(0, code.length);
+
+    input.onclick = function() {
+      this.setSelectionRange(0, this.value.length);
+    }
+  })
+</script>

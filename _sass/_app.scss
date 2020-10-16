@@ -35,6 +35,14 @@ header {
 #prestations .card {
   .list-group-item {
     background: none;
+
+    .list-group-item {
+      padding: 0;
+      border: none;
+      span {
+        margin-left: 1rem;
+      }
+    }
   }
   h5 {
     font-weight: bold;
@@ -42,6 +50,36 @@ header {
   }
 }
 
-#gallerie .card {
-  border: none;
+
+#gallery {
+  .insta-card {
+    border: none;
+    position: relative;
+    z-index: 1;
+    &:hover {
+      z-index: 2;
+    }
+
+    .card-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      display: none;
+      transition: all 0.3s;
+      &:hover {
+        display: block;
+      }
+    }
+
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  $column-width: 16.66%;
+
+  .gutter-sizer { width: 1%; }
+  .grid-sizer, .grid-item { width: $column-width; margin-bottom: 5px; }
+  .grid-item--width2 { width: 33.33%; }
 }

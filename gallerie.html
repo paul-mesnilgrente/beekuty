@@ -3,17 +3,21 @@ layout: default
 title: Gallerie
 ---
 <div class="container">
-  <div id="gallerie" class="card-columns">
-    <div class="card text-center">
-      <img class="card-img" src="/assets/images/nailarts/nailart.jpg" alt="My photo" />
-      <div class="card-body pt-1">
-        <h5 class="card-title mb-0">My photo</h5>
-        <footer class="blockquote-footer">
-          <small class="text-muted">
-            03/02/1993
-          </small>
-        </footer>
+  <div id="gallery" class="grid">
+    <div class="grid-sizer"></div>
+    <div class="gutter-sizer"></div>
+
+    {% for item in site.data.gallery %}
+      {% assign random = forloop.index | modulo: 3 %}
+      {% if random == 1 %}
+        {% assign width_class = 'grid-item--width2' %}
+      {% else %}
+        {% assign width_class = '' %}
+      {% endif %}
+
+      <div class="grid-item {{ width_class }}">
+        {% include gallery_card.html src=item.url date=item.date %}
       </div>
-    </div>
+    {% endfor %}
   </div>
 </div>
