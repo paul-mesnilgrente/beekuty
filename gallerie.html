@@ -8,7 +8,7 @@ title: Gallerie
     <div class="gutter-sizer"></div>
 
     {% for item in site.data.gallery %}
-      {% assign random = forloop.index | modulo: 4 %}
+      {% assign random = forloop.index | modulo: 3 %}
       {% if random == 1 %}
         {% assign width_class = 'grid-item--width2' %}
       {% else %}
@@ -21,17 +21,3 @@ title: Gallerie
     {% endfor %}
   </div>
 </div>
-
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-
-<script type="text/javascript">
-  // element argument can be a selector string
-  //   for an individual element
-  var msnry = new Masonry( '.grid', {
-    // options
-    itemSelector: '.grid-item',
-    columnWidth: '.grid-sizer',
-    percentPosition: true,
-    gutter: '.gutter-sizer'
-  });
-</script>

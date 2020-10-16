@@ -14,12 +14,14 @@ title: Auth
 </main>
 
 <script>
-  var code = /\/auth\?code=(.*)#_/g.exec(window.location.href)[1]
-  var input = document.querySelector('input#code')
-  input.value = code;
-  input.setSelectionRange(0, code.length);
+  $(function() {
+    var code = /\/auth\?code=(.*)#_/g.exec(window.location.href)[1]
+    var input = document.querySelector('input#code')
+    input.value = code;
+    input.setSelectionRange(0, code.length);
 
-  input.onclick = function() {
-    this.setSelectionRange(0, this.value.length);
-  }
+    input.onclick = function() {
+      this.setSelectionRange(0, this.value.length);
+    }
+  })
 </script>

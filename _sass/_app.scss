@@ -52,20 +52,34 @@ header {
 
 
 #gallery {
-  .card {
+  .insta-card {
     border: none;
+    position: relative;
+    z-index: 1;
+    &:hover {
+      z-index: 2;
+    }
+
+    .card-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      display: none;
+      transition: all 0.3s;
+      &:hover {
+        display: block;
+      }
+    }
 
     transition: all 0.3s;
     &:hover {
       transform: scale(1.1);
     }
-    // img {
-    // }
-
   }
-  $column-width: 22%;
+  $column-width: 16.66%;
 
-  .gutter-sizer { width: 4%; }
-  .grid-sizer, .grid-item { width: $column-width; margin-bottom: 10px; }
-  .grid-item--width2 { width: 48%; }
+  .gutter-sizer { width: 1%; }
+  .grid-sizer, .grid-item { width: $column-width; margin-bottom: 5px; }
+  .grid-item--width2 { width: 33.33%; }
 }
