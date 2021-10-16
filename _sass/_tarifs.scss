@@ -19,4 +19,8 @@
     color: $white;
     background-color: map-get($theme-colors, "kuty");
   }
+
+  .prochainement {
+    color: red;
+  }
 }
