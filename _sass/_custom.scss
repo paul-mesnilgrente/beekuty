@@ -4,17 +4,18 @@
     src: url('../fonts/unicorns_are_awesome.otf') format('opentype');
 }
 
-$pink: rgb(255, 17, 136);
+$pink: rgb(206, 128, 252);
 $white:    #fff;
 $kuty: $pink;
 
-$body-color: $pink;
-$transparency: .7;
-$white-tr: rgba(255, 255, 255, $transparency);
-
 $theme-colors: (
+  "font": rgb(130, 12, 146),
   "kuty": $kuty,
 );
+
+$body-color: map-get($theme-colors, "font");
+$transparency: .7;
+$white-tr: rgba(255, 255, 255, $transparency);
 
 $card-bg:                $white-tr;
 $pagination-bg:          $white-tr;

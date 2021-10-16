@@ -1,12 +1,12 @@
 .navbar {
   #kuty-nav {
-    color: $kuty;
+    color: map-get($theme-colors, "font");
     font-size: $font-size-lg;
   }
 
   background: linear-gradient(
     to bottom,
     $white-tr,
-    $info
+    map-get($theme-colors, "kuty")
   );
 }
