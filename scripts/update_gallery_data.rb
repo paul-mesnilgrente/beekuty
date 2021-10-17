@@ -8,7 +8,7 @@ require 'launchy'
 require 'date'
 
 # visit
-unless ENV['INSTAGRAM_ACCESS_CODE']
+unless ENV['INSTAGRAM_ACCESS_TOKEN']
   params = [
     "client_id=#{ENV['INSTAGRAM_APP_ID']}",
     "redirect_uri=https://beekuty.fr/auth",
