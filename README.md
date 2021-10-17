@@ -4,7 +4,7 @@ BeeKuty
 How to deploy
 -------------
 
-Push your changes to master.
+Push your changes to main.
 
 Update the gallery photos
 -------------------------
