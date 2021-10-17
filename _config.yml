@@ -29,13 +29,14 @@ plugins:
   - jekyll-feed
 
 exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-  - vendor/ruby/
-  - scripts
-  - .env
+- README.md
+- Gemfile
+- Gemfile.lock
+- node_modules
+- vendor/bundle/
+- vendor/cache/
+- vendor/gems/
+- vendor/ruby/
+- vendor/ruby/
+- scripts
+- .env
