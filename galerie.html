@@ -16,7 +16,7 @@ title: Galerie
       {% endif %}
 
       <div class="grid-item {{ width_class }}">
-        {% include gallery_card.html src=item.url date=item.date %}
+        {% include gallery_card.html id=item.id date=item.date %}
       </div>
     {% endfor %}
   </div>

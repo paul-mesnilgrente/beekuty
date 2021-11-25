@@ -10,13 +10,15 @@
 
     <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
 
+    <link href="/assets/lightbox/lightbox.min.css" rel="stylesheet">
+
     <title>{{ page.title }} | Bee Kuty</title>
   </head>
   <body{% if page.url == '/' %} class="homepage"{% endif %}>
     {{ content }}
 
     <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
@@ -24,7 +26,10 @@
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@4.1.4/imagesloaded.pkgd.min.js"></script>
 
+    <!-- lightbox -->
+    <script src="/assets/lightbox/lightbox.min.js"></script>
+
     <!-- Custom scripts -->
-    <script src="/assets/javascripts/gallery.js"></script>
+    <script src="/assets/js/gallery.js"></script>
   </body>
 </html>

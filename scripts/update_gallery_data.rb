@@ -58,12 +58,22 @@ allMedias = JSON.parse(mediasResponse.body)
 ################
 data = []
 allMedias['data'].each do |media|
+  next unless media['media_type'] == 'IMAGE'
   if media['media_type'] == 'IMAGE'
     data << {
+      'id' => media['id'],
       'media_type' => 'image',
       'url' => media['media_url'],
       'date' => Date.parse(media['timestamp']).strftime('%d/%m/%Y')
     }
+    response = Faraday.get(media['media_url'])
+    if response.success?
+      if !File.exists?("assets/images/nailarts/#{media['id']}.jpg")
+        File.open("assets/images/nailarts/#{media['id']}.jpg", 'wb') { |f| f.write(response.body) }
+      end
+    else
+      puts "Failed to download #{media['id']}"
+    end
   elsif media['media_type'] == 'CAROUSEL_ALBUM'
     children = []
     media['children']['data'].each do |child|

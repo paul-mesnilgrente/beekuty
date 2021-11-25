@@ -14,7 +14,7 @@ title: Auth
 </main>
 
 <script>
-  $(function() {
+  window.addEventListener('load', function(event) {
     var code = /\/auth\?code=(.*)#_/g.exec(window.location.href)[1]
     var input = document.querySelector('input#code')
     input.value = code;
