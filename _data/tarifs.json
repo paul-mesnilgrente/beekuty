@@ -1,0 +1,134 @@
+{
+  "sections": [
+    {
+      "title": "Épilations",
+      "subsections": [
+        {
+          "title": "Épilations Femmes",
+          "lines": [
+            { "title": "Sourcils", "price": 9 },
+            { "title": "Lèvre, menton ou joues", "price": 9 },
+            { "title": "Visage complet", "price": 9 },
+            { "title": "Aisselles", "price": 9 },
+            { "title": "Bras", "price": 9 },
+            { "title": "1/2 jambes", "price": 9 },
+            { "title": "Jambes entières", "price": 9 },
+            { "title": "Fesses", "price": 9 },
+            {
+              "title": "Maillot",
+              "sublines": [
+                { "title": "classique", "price": 10 },
+                { "title": "échancré", "price": 15 },
+                { "title": "semi-intégral", "price": 20 },
+                { "title": "intégral", "price": 25 }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Épilations Hommes",
+          "lines": [
+            { "title": "Sourcils", "price": 9 },
+            { "title": "Aisselles", "price": 10 },
+            { "title": "Épaules", "price": 12 },
+            { "title": "Bras", "price": 17 },
+            { "title": "Dos", "price": 25 },
+            { "title": "Torse", "price": 25 },
+            { "title": "1/2 jambes", "price": 22 },
+            { "title": "Jambes entières", "price": 30 }
+          ]
+        },
+        {
+          "title": "Forfaits",
+          "lines": [
+            {
+              "title": "1/2 jambes + Aisselles + Maillot",
+              "sublines": [
+                { "title": "classique", "price": 33 },
+                { "title": "échancré", "price": 38 },
+                { "title": "semi-intégral", "price": 42 },
+                { "title": "intégral", "price": 45 }
+              ]
+            },
+            {
+              "title": "Jambes entières + Aisselles + Maillot",
+              "sublines": [
+                { "title": "classique", "price": 40 },
+                { "title": "échancré", "price": 45 },
+                { "title": "semi-intégral", "price": 50 },
+                { "title": "intégral", "price": 54 }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Manucure / Pédicure",
+      "subsections": [
+        {
+          "title": "Manucure",
+          "lines": [
+            { "title": "Manucure complète", "description": "manucure classique + gommage + masque", "price": 35 },
+            { "title": "Manucure classique", "description": "Cuticules + limage", "price": 15 },
+            { "title": "Pose semi-permanent", "description": "Manucure classique incluse", "price": 35 },
+            { "title": "Dépose", "description": "Si repose", "price": 5 },
+            { "title": "Réparation 1 ongle", "description": "Après une semaine", "price": 5 },
+            { "title": "Dépose d'extensions", "description": "Si repose", "price": 10 },
+            { "title": "Dépose repos", "price": 15 }
+          ]
+        },
+        {
+          "title": "Pédicure",
+          "lines": [
+            { "title": "Pédicure complète", "description": "manucure classique + gommage + masque", "price": 45 },
+            { "title": "Pédicure classique", "description": "Cuticules + limage", "price": 25 },
+            { "title": "Pose semi-permanent", "description": "Manucure classique incluse", "price": 45 },
+            { "title": "Dépose", "description": "Si repose", "price": 5 },
+            { "title": "Dépose repos", "price": 15 }
+          ]
+        },
+        {
+          "title": "Nail art",
+          "lines": [
+            { "title": "Simple", "price_description": "2€ / ongle" },
+            { "title": "Élaboré", "price_description": "0,50ct / minute" },
+            { "title": "Dégradé", "price": 5 },
+            { "title": "French", "price": 10 }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Soins",
+      "subsections": [
+        {
+          "title": "Soins visages",
+          "lines": [
+            { "title": "Soin coup d'éclat", "duration": "30 minutes", "price": 30 },
+            { "title": "Soin éclat divin", "duration": "1 heure", "price": 60 },
+            { "title": "Soin yeux doux", "duration": "45 minutes", "price": 45 },
+            { "title": "Modelage yeux", "duration": "15 minutes", "price": 15 },
+            { "title": "Modelage visage et décolleté", "duration": "30 minutes", "price": 20 }
+          ]
+        },
+        {
+          "title": "Soins corps",
+          "lines": [
+            { "title": "Rituel Oriental", "duration": "1h15", "price": 99 },
+            { "title": "Traversée Scandinave", "duration": "1h15", "price": 99 },
+            { "title": "Soin du dos", "duration": "1 heure", "price": 35 },
+            { "title": "Modelage du dos", "duration": "20 minutes", "price": 20 }
+          ]
+        },
+        {
+          "title": "Teintures",
+          "lines": [
+            { "title": "Teinture sourcils", "price": 10 },
+            { "title": "Teinture cils", "price": 15 }
+          ]
+        }
+      ]
+    }
+  ]
+}
