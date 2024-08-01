@@ -3,21 +3,31 @@ layout: default
 title: Galerie
 ---
 <div class="container">
-  <div id="gallery" class="grid">
+  <!-- <div id="gallery" class="grid">
     <div class="grid-sizer"></div>
-    <div class="gutter-sizer"></div>
+      <div class="gutter-sizer"></div>
 
-    {% for item in site.data.gallery %}
-      {% assign random = forloop.index | modulo: 3 %}
-      {% if random == 1 %}
-        {% assign width_class = 'grid-item--width2' %}
-      {% else %}
-        {% assign width_class = '' %}
-      {% endif %}
+      {% for item in site.data.gallery %}
+        {% assign random = forloop.index | modulo: 3 %}
+        {% if random == 1 %}
+          {% assign width_class = 'grid-item--width2' %}
+        {% else %}
+          {% assign width_class = '' %}
+        {% endif %}
 
-      <div class="grid-item {{ width_class }}">
-        {% include gallery_card.html id=item.id date=item.date %}
-      </div>
-    {% endfor %}
-  </div>
+        <div class="grid-item {{ width_class }}">
+          {% include gallery_card.html id=item.id date=item.date %}
+        </div>
+      {% endfor %}
+    </div> -->
+
+  <iframe
+    src="//lightwidget.com/widgets/7c925aee01025a439d0968db38142290.html"
+    scrolling="no"
+    allowtransparency="true"
+    class="lightwidget-widget"
+    style="width:100%;border:0;overflow:hidden;">
+  </iframe>
 </div>
+<!-- LightWidget WIDGET -->
+<script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
