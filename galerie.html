@@ -3,31 +3,27 @@ layout: default
 title: Galerie
 ---
 <div class="container">
-  <!-- <div id="gallery" class="grid">
-    <div class="grid-sizer"></div>
-      <div class="gutter-sizer"></div>
-
-      {% for item in site.data.gallery %}
-        {% assign random = forloop.index | modulo: 3 %}
-        {% if random == 1 %}
-          {% assign width_class = 'grid-item--width2' %}
-        {% else %}
-          {% assign width_class = '' %}
-        {% endif %}
-
-        <div class="grid-item {{ width_class }}">
-          {% include gallery_card.html id=item.id date=item.date %}
-        </div>
-      {% endfor %}
-    </div> -->
-
-  <iframe
-    src="//lightwidget.com/widgets/7c925aee01025a439d0968db38142290.html"
-    scrolling="no"
-    allowtransparency="true"
-    class="lightwidget-widget"
-    style="width:100%;border:0;overflow:hidden;">
-  </iframe>
+  <ul class="gallery row">
+    {% for item in site.data.gallery %}
+      <li class="gallery__tile col-sm-12 col-md-6 col-lg-4">
+        <a href="/assets/images/nailarts/{{ item.id }}.jpg" data-lightbox="gallery">
+          <figure class="gallery__figure">
+            <picture class="gallery__picture">
+              <img
+                width="1080"
+                height="1080"
+                alt="🩷💗🩷 #lovepink #pink #mermaid #nails #longnails #naturalnails #semipermanent #renforcement..."
+                class="gallery__image"
+                sizes="33vw"
+                src="/assets/images/nailarts/{{ item.id }}.jpg"
+              >
+            </picture>
+            <figcaption class="gallery__caption">
+              🩷💗🩷 #lovepink #pink #mermaid #nails #longnails #naturalnails #semipermanent #renforcement...
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 </div>
-<!-- LightWidget WIDGET -->
-<script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
