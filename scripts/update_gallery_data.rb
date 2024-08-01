@@ -69,6 +69,7 @@ all_medias['data'].each do |media|
       'id' => media['id'],
       'media_type' => 'image',
       'url' => media['media_url'],
+      'caption' => media['caption'],
       'date' => Date.parse(media['timestamp']).strftime('%d/%m/%Y')
     }
     response = Faraday.get(media['media_url'])
@@ -93,6 +94,7 @@ all_medias['data'].each do |media|
     data << {
       'type' => 'album',
       'url' => media['media_url'],
+      'caption' => media['caption'],
       'date' => Date.parse(media['timestamp']).strftime('%d/%m/%Y'),
       'children' => children
     }
