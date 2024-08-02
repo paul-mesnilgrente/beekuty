@@ -13,6 +13,7 @@ Update the gallery photos
 - Find the instagram developper app here: https://developers.facebook.com/apps > Paramètres > Général
 - Note the "identifiant de l'application", and the "Clé secret"
 - export them in INSTAGRAM_APP_ID and INSTAGRAM_APP_SECRET environment variables
+- Run `./scripts/get_access_token.rb`, follow the instructions given
 - Run `./scripts/update_gallery_data.rb`
 
 **Troubleshoot**
