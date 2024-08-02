@@ -55,10 +55,10 @@ def first_medias
 end
 
 def download_image(media)
-  response = Instgrm::Request.new.fetch_image(media['media_url'])
+  image = Instgrm::Request.new.fetch_image(media['media_url'])
   return if File.exist?("assets/images/nailarts/#{media['id']}.jpg")
 
-  File.open("assets/images/nailarts/#{media['id']}.jpg", 'wb') { |f| f.write(response.body) }
+  File.open("assets/images/nailarts/#{media['id']}.jpg", 'wb') { |f| f.write(image) }
 end
 
 def fetch_child(id)
