@@ -5,10 +5,10 @@ title: Prestations
 <div class="container">
   {% for section in site.data.tarifs.sections %}
     <h1>{{ section.title }}</h1>
-    <div id="tarifs" class="row row-cols-1 row-cols-md-2 row-cols-xl-3" data-masonry='{"percentPosition": true }'>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3" data-masonry='{"percentPosition": true }'>
       {% for subsection in section.subsections %}
         <div class="col mb-2">
-          <div class="card">
+          <div class="card tarif">
             <div class="card-body">
               <h5 class="card-title">{{ subsection.title }}</h5>
               <ul class="list-group list-group-flush">
@@ -17,7 +17,7 @@ title: Prestations
                     <li class="list-group-item">
                       <div class="d-flex justify-content-between align-items-center">
                         <div>{{ line.title }}</div>
-                        <span class="badge badge-kuty badge-pill">
+                        <span class="badge tarif__badge badge-pill">
                           {% if line.price_description == nil %}
                             {{ line.price }}€</span>
                           {% else %}
@@ -34,12 +34,12 @@ title: Prestations
                     </li>
                   {% else %}
                     <li class="list-group-item">
-                      <span class="font-weight-bold">{{ line.title }}</span>
+                      <span class="fw-bold">{{ line.title }}</span>
                       <ul class="list-group list-group-flush">
                         {% for subline in line.sublines %}
                           <li class="list-group-item d-flex justify-content-between align-items-center">
                             {{ subline.title }}
-                            <span class="badge badge-kuty badge-pill">
+                            <span class="badge tarif__badge badge-pill">
                               {% if subline.price_description == nil %}
                                 {{ subline.price }}€</span>
                               {% else %}

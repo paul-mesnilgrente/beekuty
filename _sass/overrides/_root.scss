@@ -2,4 +2,7 @@
   --bs-body-bg: #{$ivory};
 
   --bs-font-sans-serif: 'unicorns', #{inspect($font-family-sans-serif)};
+  --#{$prefix}border-width: 3px;
+  --bs-border-radius: 0;
+  --bs-border-color: black;
 }

@@ -1,4 +1,6 @@
-#tarifs .card {
+.tarif {
+  background-color: $pale-prim;
+
   .list-group-item {
     background: none;
 
@@ -15,9 +17,9 @@
     // color: map-get($theme-colors, 'font');
   }
 
-  .badge-kuty {
+  .tarif__badge {
     // color: $white;
-    // background-color: map-get($theme-colors, "kuty");
+    background-color: $granny-smith-apple;
   }
 
   .prochainement {
