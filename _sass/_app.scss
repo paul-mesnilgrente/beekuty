@@ -1,7 +1,7 @@
 body {
-  margin-bottom: 50px;
+  margin-bottom: 3rem;
 }
 
-h1, h2, h3, h4, h5, h6, .navbar, .contact__label, .contact__submit {
+h1, h2, h3, h4, h5, h6, .nav, .contact__label, .contact__submit {
   font-family: 'tahu', #{inspect($font-family-sans-serif)};
 }

@@ -1,0 +1,23 @@
+.beenav {
+  .beenav__link {
+    height: 100%;
+    color: var(--bs-body-color);
+    align-content: center;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .beenav__item {
+    height: 5rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .beenav__item-0 { background-image: url('/assets/images/logo.png'); }
+  .beenav__item-1 { background-image: url('/assets/images/link_background_1.png'); }
+  .beenav__item-2 { background-image: url('/assets/images/link_background_2.png'); }
+  .beenav__item-3 { background-image: url('/assets/images/link_background_3.png'); }
+}
