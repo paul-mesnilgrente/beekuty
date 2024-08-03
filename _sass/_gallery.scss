@@ -7,8 +7,13 @@
   }
 
   .gallery__tile {
+    position: relative;
+
     padding: 2px;
     list-style: none;
+
+    &:hover .gallery__image   { opacity: 0.3; }
+    &:hover .gallery__overlay { opacity: 1; }
   }
 
   .gallery__image {
@@ -21,5 +26,23 @@
 
   .gallery__caption {
     display: none;
+  }
+
+  .gallery__carousel-icon {
+    position: absolute;
+    top: -.2rem;
+    right: .4rem;
+    color: $wild-sand;
+  }
+
+  .gallery__overlay {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
   }
 }
