@@ -1,11 +1,13 @@
-$(function() {
+window.addEventListener('load', function() {
   let modal_on_load_value = localStorage.getItem("modal_on_load")
+  const modalElement = document.getElementById('modal-on-load');
 
   if (modal_on_load_value !== 'seen') {
-    $('#modal-on-load').modal('show')
+    const bsModal = new bootstrap.Modal(modalElement)
+    bsModal.show()
   }
 
-  $('#modal-on-load').on('hide.bs.modal', function() {
+  modalElement.addEventListener('hide.bs.modal', function() {
     localStorage.setItem("modal_on_load", "seen");
   })
 })
