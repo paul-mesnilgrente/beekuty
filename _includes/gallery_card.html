@@ -1,12 +1,19 @@
-<a href="/assets/images/nailarts/{{ include.id }}.jpg" data-lightbox="gallery">
-  <!-- <img class="card-img" src="/assets/images/nailarts/{{ include.id }}.jpg" alt="My photo" /> -->
-
-  <img
-    width="1080"
-    height="1080"
-    alt="💜🌸💚🌸💜 #nailart #passionnails #passion #nails #onestroke #paint #flowers #fleurs..."
-    class="card-img gallery__image lightwidget__image"
-    sizes="33vw"
-    src="/assets/images/nailarts/{{ include.id }}.jpg"
-  >
-</a>
+<li class="gallery__tile col-sm-12 col-md-6 col-lg-4 {% if include.index > 1 %}d-none{% endif %}">
+  <a href="/assets/images/nailarts/{{ include.id }}.jpg" data-lightbox="gallery">
+    <figure class="gallery__figure">
+      <picture class="gallery__picture">
+        <img
+          width="1080"
+          height="1080"
+          alt="{{ include.caption }}"
+          class="gallery__image"
+          sizes="33vw"
+          src="/assets/images/nailarts/{{ include.id }}.jpg"
+        >
+      </picture>
+      <figcaption class="gallery__caption">
+        {{ item.caption }}
+      </figcaption>
+    </figure>
+  </a>
+</li>

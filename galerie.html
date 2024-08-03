@@ -6,46 +6,10 @@ title: Galerie
   <ul class="gallery row">
     {% for item in site.data.gallery %}
       {% if item.media_type == 'IMAGE' %}
-        <li class="gallery__tile col-sm-12 col-md-6 col-lg-4">
-          <a href="/assets/images/nailarts/{{ item.id }}.jpg" data-lightbox="gallery">
-            <figure class="gallery__figure">
-              <picture class="gallery__picture">
-                <img
-                  width="1080"
-                  height="1080"
-                  alt="{{ item.caption }}"
-                  class="gallery__image"
-                  sizes="33vw"
-                  src="/assets/images/nailarts/{{ item.id }}.jpg"
-                >
-              </picture>
-              <figcaption class="gallery__caption">
-                {{ item.caption }}
-              </figcaption>
-            </figure>
-          </a>
-        </li>
+        {% include gallery_card.html id=item.id caption=item.caption index=1 %}
       {% else %}
-        {% for children in item.children%}
-          <li class="gallery__tile {% if forloop.index > 1 %}d-none{% endif %} col-sm-12 col-md-6 col-lg-4">
-            <a href="/assets/images/nailarts/{{ children.id }}.jpg" data-lightbox="gallery">
-              <figure class="gallery__figure">
-                <picture class="gallery__picture">
-                  <img
-                    width="1080"
-                    height="1080"
-                    alt="{{ item.caption }}"
-                    class="gallery__image"
-                    sizes="33vw"
-                    src="/assets/images/nailarts/{{ children.id }}.jpg"
-                  >
-                </picture>
-                <figcaption class="gallery__caption">
-                  {{ item.caption }}
-                </figcaption>
-              </figure>
-            </a>
-          </li>
+        {% for child in item.children%}
+          {% include gallery_card.html id=child.id caption=child.caption index=forloop.index %}
         {% endfor %}
       {% endif %}
     {% endfor %}
