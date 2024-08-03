@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"{% if page.url == '/' %} class="homepage"{% endif %}>
+<html lang="en"{% if page.url == '/' %} class="home-html"{% endif %}>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
 
     <title>{{ page.title }} | Bee Kuty</title>
   </head>
-  <body{% if page.url == '/' %} class="homepage"{% endif %}>
+  <body{% if page.url == '/' %} class="home-body"{% endif %}>
     {{ content }}
 
     {% include name_change_popup.html %}

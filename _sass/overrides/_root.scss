@@ -1,0 +1,5 @@
+:root {
+  --bs-body-bg: #{$ivory};
+
+  --bs-font-sans-serif: 'unicorns', #{inspect($font-family-sans-serif)};
+}

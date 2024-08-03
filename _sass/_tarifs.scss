@@ -12,12 +12,12 @@
   }
   h5 {
     font-weight: bold;
-    color: map-get($theme-colors, 'font');
+    // color: map-get($theme-colors, 'font');
   }
 
   .badge-kuty {
-    color: $white;
-    background-color: map-get($theme-colors, "kuty");
+    // color: $white;
+    // background-color: map-get($theme-colors, "kuty");
   }
 
   .prochainement {

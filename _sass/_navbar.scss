@@ -1,12 +1,17 @@
 .navbar {
-  #kuty-nav {
-    color: map-get($theme-colors, "font");
-    font-size: $font-size-lg;
-  }
-
-  background: linear-gradient(
-    to bottom,
-    $white-tr,
-    map-get($theme-colors, "kuty")
-  );
+  margin-bottom: 1rem;
+  background: $granny-smith-apple;
 }
+
+// .navbar {
+//   #kuty-nav {
+//     color: map-get($theme-colors, "font");
+//     font-size: $font-size-lg;
+//   }
+
+//   background: linear-gradient(
+//     to bottom,
+//     $white-tr,
+//     map-get($theme-colors, "kuty")
+//   );
+// }
