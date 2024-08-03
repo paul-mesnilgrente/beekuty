@@ -17,7 +17,7 @@ title: Prestations
                     <li class="list-group-item">
                       <div class="d-flex justify-content-between align-items-center">
                         <div>{{ line.title }}</div>
-                        <span class="badge tarif__badge badge-pill">
+                        <span class="badge tarif__badge">
                           {% if line.price_description == nil %}
                             {{ line.price }}€</span>
                           {% else %}
@@ -39,7 +39,7 @@ title: Prestations
                         {% for subline in line.sublines %}
                           <li class="list-group-item d-flex justify-content-between align-items-center">
                             {{ subline.title }}
-                            <span class="badge tarif__badge badge-pill">
+                            <span class="badge tarif__badge">
                               {% if subline.price_description == nil %}
                                 {{ subline.price }}€</span>
                               {% else %}

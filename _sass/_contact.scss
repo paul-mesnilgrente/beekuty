@@ -1,6 +1,8 @@
 .contact {
   background-image: url('/assets/images/contact_background.png');
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 
   .contact__submit {
     background-color: $downey;

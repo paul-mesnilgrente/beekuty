@@ -1,5 +1,6 @@
 .tarif {
   background-color: $pale-prim;
+  border-radius: .6rem;
 
   .list-group-item {
     background: none;
@@ -14,11 +15,10 @@
   }
   h5 {
     font-weight: bold;
-    // color: map-get($theme-colors, 'font');
   }
 
   .tarif__badge {
-    // color: $white;
+    color: var(--bs-body-color);
     background-color: $granny-smith-apple;
   }
 
