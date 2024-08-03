@@ -7,13 +7,13 @@
           "title": "Épilations Femmes",
           "lines": [
             { "title": "Sourcils", "price": 9 },
-            { "title": "Lèvre, menton ou joues", "price": 9 },
-            { "title": "Visage complet", "price": 9 },
-            { "title": "Aisselles", "price": 9 },
-            { "title": "Bras", "price": 9 },
-            { "title": "1/2 jambes", "price": 9 },
-            { "title": "Jambes entières", "price": 9 },
-            { "title": "Fesses", "price": 9 },
+            { "title": "Lèvre, menton ou joues", "price": 7 },
+            { "title": "Visage complet", "price": 25 },
+            { "title": "Aisselles", "price": 10 },
+            { "title": "Bras", "price": 15 },
+            { "title": "1/2 jambes", "price": 17 },
+            { "title": "Jambes entières", "price": 25 },
+            { "title": "Fesses", "price": 5 },
             {
               "title": "Maillot",
               "sublines": [
