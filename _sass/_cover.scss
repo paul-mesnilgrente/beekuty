@@ -1,8 +1,8 @@
 .cover {
   position: relative;
-  height: calc(100vh - calc(#{$nav-height} + calc(#{$nav-margin-y} * 2)));
+  height: calc(100svh - calc(#{$nav-height} + calc(#{$nav-margin-y} * 2)));
   @media only screen and (max-width:  416px) {
-    height: calc(100vh - calc(calc(#{$nav-height} * 2) + calc(#{$nav-margin-y} * 2)));
+    height: calc(100svh - calc(#{$small-nav-height} + calc(#{$nav-margin-y} * 2)));
   }
 
   .cover__logo {
@@ -19,7 +19,7 @@
     text-shadow: 0 0.05rem 1rem rgba(0, 0, 0, 0.5);
     line-height: 1;
 
-    font-size: max(15vh, 12vw);
     margin-bottom: 1rem;
+    font-size: max(15svh, 12svw);
   }
 }

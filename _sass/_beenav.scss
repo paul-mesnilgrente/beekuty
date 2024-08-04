@@ -1,4 +1,5 @@
 $nav-height: 5rem;
+$small-nav-height: 4rem;
 $nav-margin-y: 1rem;
 
 .beenav {
@@ -12,7 +13,7 @@ $nav-margin-y: 1rem;
 
     height: $nav-height;
     @media only screen and(max-width: 400px) {
-      height: 3rem;
+      height: $small-nav-height;
     }
   }
 
