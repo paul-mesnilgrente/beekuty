@@ -23,7 +23,7 @@ module Instgrm
   end
 
   # Create requests for instagram
-  class Request
+  class Api
     def initialize
       @connection = Faraday.new(url: 'https://graph.instagram.com/') do |faraday|
         faraday.request :json
@@ -49,20 +49,20 @@ module Instgrm
 end
 
 def first_medias
-  Instgrm::Request.new.get(
+  Instgrm::Api.new.get(
     '/me/media', { fields: 'id,children,caption,media_type,media_url,timestamp' }
   )
 end
 
 def download_image(media)
-  image = Instgrm::Request.new.fetch_image(media['media_url'])
+  image = Instgrm::Api.new.fetch_image(media['media_url'])
   return if File.exist?("assets/images/nailarts/#{media['id']}.jpg")
 
   File.open("assets/images/nailarts/#{media['id']}.jpg", 'wb') { |f| f.write(image) }
 end
 
 def fetch_child(id)
-  Instgrm::Request.new.get("/#{id}", { fields: 'media_url' })
+  Instgrm::Api.new.get("/#{id}", { fields: 'media_url' })
 end
 
 def download_children(media)
@@ -70,18 +70,17 @@ def download_children(media)
   media['children']['data'].each do |child|
     child_response = fetch_child(child['id'])
     download_image(child_response)
-    children << child_response
+    children << { id: child_response['id'] }
   end
   children
 end
 
 def build_data(media)
   {
-    'id' => media['id'],
-    'media_type' => media['media_type'],
-    'url' => media['media_url'],
-    'caption' => media['caption'],
-    'timestamp' => media['timestamp']
+    id: media['id'],
+    media_type: media['media_type'],
+    caption: media['caption'],
+    timestamp: media['timestamp']
   }
 end
 
@@ -104,6 +103,6 @@ medias['data'].each do |media|
   data << download_media(media)
 end
 
-File.write('_data/gallery.yaml', data.to_yaml)
+File.write('_data/gallery.json', data.to_json)
 
 puts 'The end'
