@@ -1,12 +1,5 @@
 .home-html, .home-body {
   height: 100%;
-}
-
-.home-body {
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: flex;
-  justify-content: center;
-  -ms-flex-pack: center;
-  -webkit-box-pack: center;
+  margin: 0;
+  overflow: hidden;
 }

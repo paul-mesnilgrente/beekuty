@@ -2,10 +2,9 @@
 layout: base
 title: Homepage
 ---
-<div class="home">
-  <main class="cover text-center d-flex flex-column h-75 mx-auto justify-content-center">
-    <img class="cover__logo mx-auto" src="/assets/images/logo.png" alt="Logo de BeeKuty">
-    <h1 class="cover__heading">{{ site.title }}</h1>
-  </main>
-  {% include nav.html nav_class=' fixed-bottom' %}
-</div>
+<main class="cover text-center d-flex flex-column h-75 mx-auto justify-content-center">
+  <img class="cover__logo mx-auto" src="/assets/images/logo.png" alt="Logo de BeeKuty">
+  <h1 class="cover__heading">{{ site.title }}</h1>
+</main>
+
+{% include nav.html nav_class=' fixed-bottom' %}
