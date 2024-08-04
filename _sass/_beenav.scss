@@ -6,16 +6,22 @@ $nav-margin-y: 1rem;
   margin-bottom: $nav-margin-y;
 
   .beenav__item {
-    height: 5rem;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+
+    height: $nav-height;
+    @media only screen and(max-width: 400px) {
+      height: 3rem;
+    }
   }
 
   .beenav__link {
     height: 100%;
     color: var(--bs-body-color);
     align-content: center;
+    padding-right: 0;
+    padding-left: 0;
 
     &:hover {
       text-decoration: underline;
