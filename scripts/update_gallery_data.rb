@@ -111,24 +111,91 @@ def download_media(media)
   data
 end
 
-# get the media
-data = []
-response = nil
-page = 0
-while (response = fetch_medias(response))
-  page += 1
-  puts '#############################'
-  puts "# Processing page #{page}..."
-  puts '#############################'
+# used to store
+class Gallery
+  FILE_PATH = '_data/gallery.json'.freeze
 
-  response['data'].each do |media|
-    data << download_media(media)
+  def initialize
+    @data = []
   end
 
-  puts ''
+  def first_id
+    return nil if @data.empty?
+
+    @data.first['id']
+  end
+
+  def add(item)
+    @data.unshift(item)
+  end
+
+  def load
+    return nil unless File.exist?(FILE_PATH)
+
+    @data = JSON.parse(File.read(FILE_PATH))
+  end
+
+  def save
+    File.write(FILE_PATH, @data.to_json)
+  end
 end
 
-puts 'Writing data...'
-File.write('_data/gallery.json', data.to_json)
+# used to simplify the script reading
+class ProgressLogger
+  def initialize
+    @page = 0
+  end
 
-puts 'The end'
+  def log_new_page
+    @page += 1
+    log("Processing page #{@page}...")
+  end
+
+  def log_fetched_all(id)
+    log("Found the latest id #{id}")
+  end
+
+  def log_data_writing
+    log('Writing data')
+  end
+
+  def log_end
+    log('END')
+  end
+
+  private
+
+  def log(message)
+    puts ''
+    puts '#######################################'
+    puts "# #{message}"
+    puts '#######################################'
+    puts ''
+  end
+end
+
+logger = ProgressLogger.new
+gallery = Gallery.new
+gallery.load
+first_id = gallery.first_id
+
+response = nil
+fetched_all = false
+while !fetched_all && (response = fetch_medias(response))
+  logger.log_new_page
+
+  response['data'].each do |media|
+    if media['id'] == first_id
+      fetched_all = true
+      logger.log_fetched_all(first_id)
+      break
+    end
+
+    gallery.add(download_media(media))
+  end
+end
+
+logger.log_data_writing
+gallery.save
+
+logger.log_end
