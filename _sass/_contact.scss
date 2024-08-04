@@ -1,6 +1,12 @@
 .contact {
-  background-image: url('/assets/images/contact_background.png');
+  background-image: url('/assets/images/nuage_1.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+
+}
+@media (max-aspect-ratio: 4/5) {
+  .contact {
+    background-image: url('/assets/images/nuage_2.png');
+  }
 }
