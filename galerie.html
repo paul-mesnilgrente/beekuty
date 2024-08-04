@@ -6,10 +6,10 @@ title: Galerie
   <ul class="gallery row">
     {% for item in site.data.gallery %}
       {% if item.media_type == 'IMAGE' %}
-        {% include gallery_card.html id=item.id caption=item.caption many=false index=1 %}
+        {% include gallery_tile.html id=item.id caption=item.caption media_url=item.media_url many=false index=1 %}
       {% else %}
         {% for child in item.children%}
-          {% include gallery_card.html id=child.id caption=child.caption many=true index=forloop.index %}
+          {% include gallery_tile.html id=child.id caption=child.caption media_url=child.media_url many=true index=forloop.index %}
         {% endfor %}
       {% endif %}
     {% endfor %}

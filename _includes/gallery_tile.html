@@ -1,5 +1,5 @@
 <li class="gallery__tile col-sm-12 col-md-6 col-lg-4 {% if include.index > 1 %}d-none{% endif %}">
-  <a href="/assets/images/nailarts/{{ include.id }}.jpg" data-lightbox="gallery">
+  <a href="{{ include.media_url }}" data-lightbox="gallery">
     <figure class="gallery__figure">
       <picture class="gallery__picture">
         <img
@@ -7,8 +7,7 @@
           height="1080"
           alt="{{ include.caption }}"
           class="gallery__image"
-          sizes="33vw"
-          src="/assets/images/nailarts/{{ include.id }}.jpg"
+          src="{{ include.media_url }}"
         >
       </picture>
       <figcaption class="gallery__caption">

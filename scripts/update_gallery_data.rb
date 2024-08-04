@@ -48,17 +48,30 @@ module Instgrm
   end
 end
 
-def first_medias
-  Instgrm::Api.new.get(
-    '/me/media', { fields: 'id,children,caption,media_type,media_url,timestamp' }
-  )
+def fetch_medias(last_response)
+  if last_response.nil?
+    Instgrm::Api.new.get(
+      '/me/media', { fields: 'id,children,caption,media_type,media_url,timestamp' }
+    )
+  else
+    return nil if last_response['paging']['next'].nil?
+
+    Instgrm::Api.new.get(
+      last_response['paging']['next'], { fields: 'id,children,caption,media_type,media_url,timestamp' }
+    )
+  end
 end
 
+# media_url can be used to avoid downloading images
+# this method is kept in case it's needed again
 def download_image(media)
-  image = Instgrm::Api.new.fetch_image(media['media_url'])
-  return if File.exist?("assets/images/nailarts/#{media['id']}.jpg")
+  return if ENV.fetch('DOWNLOAD_IMAGES', 'false') == 'false'
 
-  File.open("assets/images/nailarts/#{media['id']}.jpg", 'wb') { |f| f.write(image) }
+  image_path = "assets/images/nailarts/#{media['id']}.jpg"
+  return if File.exist?(image_path)
+
+  image = Instgrm::Api.new.fetch_image(media['media_url'])
+  File.open(image_path, 'wb') { |f| f.write(image) }
 end
 
 def fetch_child(id)
@@ -69,8 +82,9 @@ def download_children(media)
   children = []
   media['children']['data'].each do |child|
     child_response = fetch_child(child['id'])
+    # media_url can be used to avoid downloading images
     download_image(child_response)
-    children << { id: child_response['id'] }
+    children << { id: child_response['id'], media_url: child_response['media_url'] }
   end
   children
 end
@@ -80,7 +94,8 @@ def build_data(media)
     id: media['id'],
     media_type: media['media_type'],
     caption: media['caption'],
-    timestamp: media['timestamp']
+    timestamp: media['timestamp'],
+    media_url: media['media_url']
   }
 end
 
@@ -98,11 +113,22 @@ end
 
 # get the media
 data = []
-medias = first_medias
-medias['data'].each do |media|
-  data << download_media(media)
+response = nil
+page = 0
+while (response = fetch_medias(response))
+  page += 1
+  puts '#############################'
+  puts "# Processing page #{page}..."
+  puts '#############################'
+
+  response['data'].each do |media|
+    data << download_media(media)
+  end
+
+  puts ''
 end
 
+puts 'Writing data...'
 File.write('_data/gallery.json', data.to_json)
 
 puts 'The end'
