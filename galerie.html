@@ -4,7 +4,7 @@ title: Galerie
 ---
 <div class="container">
   <ul class="gallery row">
-    {% for item in site.data.gallery %}
+    {% for item in site.data.gallery limit: 9 %}
       {% if item.media_type == 'IMAGE' %}
         {% include gallery_tile.html id=item.id caption=item.caption media_url=item.media_url many=false index=1 %}
       {% else %}
