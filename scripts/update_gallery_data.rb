@@ -7,6 +7,16 @@ require 'pry'
 require 'launchy'
 require 'date'
 
+if ENV.fetch('INSTAGRAM_ACCESS_TOKEN', nil).nil?
+  puts 'Please export INSTAGRAM_ACCESS_TOKEN'
+  exit 1
+end
+
+puts 'before'
+puts "ENV #{ENV.fetch('INSTAGRAM_ACCESS_TOKEN', nil).class}"
+puts "ENV #{ENV.fetch('INSTAGRAM_ACCESS_TOKEN', nil).length}"
+puts 'after'
+
 # Instagram module
 module Instgrm
   # Used to stop the script when failing and log debugging logs
@@ -16,8 +26,12 @@ module Instgrm
     end
 
     def call
+      puts 'REQUEST FAILED'
+      puts @exception.class
+      puts "STATUS: #{@exception.response_status}"
+      puts "HEADERS: #{@exception.response_headers}"
+      puts "BODY: #{@exception.response_body}"
       binding.pry
-      puts 'Request failed'
       exit 1
     end
   end

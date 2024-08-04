@@ -1,0 +1,31 @@
+name: Update gallery
+on: push
+
+jobs:
+  update_gallery:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Update gallery
+        env:
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+        run: |
+          bundle exec ruby ./scripts/update_gallery_data.rb
+
+          git config --global user.name "Continuous Integration"
+          git config --global user.email "username@users.noreply.github.com"
+          if git status | grep _data/gallery.json; then
+            git add _data/gallery.json
+            git commit -m 'updated _data/gallery.json with new posts'
+            git push
+          else
+            echo 'No updates'
+          fi

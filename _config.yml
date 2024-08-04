@@ -37,3 +37,4 @@ exclude:
 - vendor/ruby/
 - scripts
 - .env
+- .github
