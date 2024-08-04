@@ -1,4 +1,17 @@
+$nav-height: 5rem;
+$nav-margin-y: 1rem;
+
 .beenav {
+  margin-top: $nav-margin-y;
+  margin-bottom: $nav-margin-y;
+
+  .beenav__item {
+    height: 5rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
   .beenav__link {
     height: 100%;
     color: var(--bs-body-color);
@@ -7,13 +20,6 @@
     &:hover {
       text-decoration: underline;
     }
-  }
-
-  .beenav__item {
-    height: 5rem;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
   }
 
   .beenav__item-0 { background-image: url('/assets/images/logo.png'); }

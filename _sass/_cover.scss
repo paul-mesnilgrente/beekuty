@@ -1,24 +1,38 @@
 .cover {
-  margin-top: 2.5rem;
+  height: calc(100vh - calc(#{$nav-height} + calc(#{$nav-margin-y} * 2)));
 
   .cover__logo {
     max-width: 90%;
-    max-height: 50vh;
+
+    @media only screen and (min-width: 350px) {
+      height: 86%;
+    }
+
+    @media only screen and (min-width: 500px) {
+      height: 86%;
+    }
+
+    @media only screen and (min-width: 1000px) {
+      height: 86%;
+    }
   }
 
   .cover__heading {
     text-shadow: 0 0.05rem 1rem rgba(0, 0, 0, 0.5);
+    margin-top: -8rem;
+    margin-bottom: 0;
+    line-height: 1;
 
     @media only screen and (min-width: 350px) {
-      font-size: 5rem;
+      font-size: 21vh;
     }
 
     @media only screen and (min-width: 500px) {
-      font-size: 7rem;
+      font-size: 21vh;
     }
 
     @media only screen and (min-width: 1000px) {
-      font-size: 14rem;
+      font-size: 21vh;
     }
   }
 }
