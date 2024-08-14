@@ -1,5 +1,9 @@
 name: Update gallery
-on: push
+on:
+  schedule:
+    - cron: '0 11 * * *'
+  push:
+    branches: [main]
 
 jobs:
   update_gallery:
