@@ -7,15 +7,14 @@ require 'pry'
 require 'launchy'
 require 'date'
 
-if ENV.fetch('INSTAGRAM_ACCESS_TOKEN', nil).nil?
+INSTAGRAM_ACCESS_TOKEN = ENV.fetch('INSTAGRAM_ACCESS_TOKEN', nil).freeze
+FETCH_ALL = (ENV.fetch('FETCH_ALL', 'true') != 'true')
+
+if INSTAGRAM_ACCESS_TOKEN.nil?
   puts 'Please export INSTAGRAM_ACCESS_TOKEN'
+  puts 'Or simply run `source .env` if you have it'
   exit 1
 end
-
-puts 'before'
-puts "ENV #{ENV.fetch('INSTAGRAM_ACCESS_TOKEN', nil).class}"
-puts "ENV #{ENV.fetch('INSTAGRAM_ACCESS_TOKEN', nil).length}"
-puts 'after'
 
 # Instagram module
 module Instgrm
@@ -45,7 +44,7 @@ module Instgrm
         faraday.response :logger
         faraday.response :raise_error
       end
-      @access_token_param = { access_token: ENV['INSTAGRAM_ACCESS_TOKEN'] }
+      @access_token_param = { access_token: INSTAGRAM_ACCESS_TOKEN }
     end
 
     def fetch_image(media_url)
@@ -79,8 +78,6 @@ end
 # media_url can be used to avoid downloading images
 # this method is kept in case it's needed again
 def download_image(media)
-  return if ENV.fetch('DOWNLOAD_IMAGES', 'false') == 'false'
-
   image_path = "assets/images/nailarts/#{media['id']}.jpg"
   return if File.exist?(image_path)
 
@@ -131,6 +128,7 @@ class Gallery
 
   def initialize
     @data = []
+    @new_data = []
   end
 
   def first_id
@@ -140,17 +138,17 @@ class Gallery
   end
 
   def add(item)
-    @data.unshift(item)
+    @new_data.push(item)
   end
 
   def load
-    return nil unless File.exist?(FILE_PATH)
+    return if FETCH_ALL || !File.exist?(FILE_PATH)
 
     @data = JSON.parse(File.read(FILE_PATH))
   end
 
   def save
-    File.write(FILE_PATH, @data.to_json)
+    File.write(FILE_PATH, (@new_data + @data).to_json)
   end
 end
 
@@ -199,7 +197,7 @@ while !fetched_all && (response = fetch_medias(response))
   logger.log_new_page
 
   response['data'].each do |media|
-    if media['id'] == first_id
+    if !FETCH_ALL && media['id'] == first_id
       fetched_all = true
       logger.log_fetched_all(first_id)
       break
