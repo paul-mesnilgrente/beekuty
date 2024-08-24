@@ -27,8 +27,8 @@ jobs:
           git config --global user.name "Continuous Integration"
           git config --global user.email "username@users.noreply.github.com"
           if git status | grep _data/gallery.json; then
-            git add _data/gallery.json
-            git commit -m 'updated _data/gallery.json with new posts'
+            git add _data/gallery.json assets/images/nailarts
+            git commit -m 'ci: updated gallery'
             git push
           else
             echo 'No updates'
