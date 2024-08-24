@@ -12,7 +12,7 @@ $nav-margin-y: 1rem;
     background-position: center;
 
     height: $nav-height;
-    @media only screen and(max-width: 400px) {
+    @media (max-width: 400px) {
       height: $small-nav-height;
     }
   }
