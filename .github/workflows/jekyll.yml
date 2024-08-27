@@ -7,9 +7,12 @@
 name: Deploy Jekyll site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+  # that's to deploy the updates after the Update gallery runs
+  # By default, github prevents pushes from github actions to trigger workflows
+  workflow_run:
+    workflows: ["Update gallery"]
+    types:
+      - completed
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
