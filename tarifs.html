@@ -15,18 +15,18 @@ title: Prestations
                 {% for line in subsection.lines %}
                   {% if line.sublines == nil %}
                     <li class="list-group-item">
-                      <div class="d-flex justify-content-between align-items-center">
+                      <div class="d-flex justify-content-between align-items-center gap-2">
                         <div>{{ line.title }}</div>
                         <span class="badge tarif__badge">
                           {% if line.price_description == nil %}
-                            {{ line.price }}€</span>
+                            {{ line.price }}€
                           {% else %}
                             {{ line.price_description }}
                           {% endif %}
                         </span>
                       </div>
                       {% if line.description != nil %}
-                        <small>({{ line.description }})</small>
+                        <small>({{ line.description }})</small><br />
                       {% endif %}
                       {% if line.duration != nil %}
                         <small>Durée {{ line.duration }}</small>
