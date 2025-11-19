@@ -88,6 +88,13 @@
           ]
         },
         {
+          "title": "Extras",
+          "lines": [
+            { "title": "Gommage", "price": 10 },
+            { "title": "Masque", "price": 10 }
+          ]
+        },
+        {
           "title": "Nail art",
           "lines": [
             { "title": "Simple", "price_description": "2€ / ongle" },
@@ -129,15 +136,8 @@
             { "title": "Teinture cils", "price": 15 },
             { "title": "Réhaussement de cils", "duration": "1h20", "price": 60 }
           ]
-        },
-        {
-          "title": "Extras",
-          "lines": [
-            { "title": "Gommage", "price": 10 },
-            { "title": "Masque", "price": 10 }
-          ]
         }
-      ]
+     ]
     },
     {
       "title": "Petit plus",
@@ -146,6 +146,14 @@
           "title": "Maquillage",
           "lines": [
             { "title": "Animation maquillage pour vos évènements", "price_description": "sur devis" }
+          ]
+        },
+        {
+          "title": "Réductions",
+          "lines": [
+            { "title": "Manucure + Pédicure", "price": -10 },
+            { "title": "Gommage + Enveloppement du corps", "price": -10 },
+            { "title": "Gommage + Masque mains ou pieds", "price": -5 }
           ]
         }
       ]
