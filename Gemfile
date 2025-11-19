@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '~> 4.3'
+gem 'jekyll', '~> 4.4'
 
 group :development do
-  gem 'csv'
   gem 'faraday'
   gem 'launchy'
 
