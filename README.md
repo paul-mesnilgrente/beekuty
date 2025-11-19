@@ -21,7 +21,6 @@ Get a temporary token:
 6. Export them in INSTAGRAM_APP_ID and INSTAGRAM_APP_SECRET environment variables
 7. Run `./scripts/get_access_token.rb`
 
-
 Get a long-lived token:
 
 1. Go to https://developers.facebook.com/apps
