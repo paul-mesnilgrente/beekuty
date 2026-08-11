@@ -1,0 +1,11 @@
+---
+layout: null
+sitemap: false
+---
+# Les pages à ne pas indexer portent une balise <meta name="robots" content="noindex">.
+# On laisse donc le crawl entièrement ouvert : une page bloquée ici ne serait
+# jamais explorée, et sa balise noindex ne serait jamais lue.
+User-agent: *
+Allow: /
+
+Sitemap: {{ '/sitemap.xml' | absolute_url }}

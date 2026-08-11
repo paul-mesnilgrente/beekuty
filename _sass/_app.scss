@@ -5,3 +5,17 @@ body {
 h1, h2, h3, h4, h5, h6, .nav, .contact__label, .contact__submit {
   font-family: 'tahu', #{inspect($font-family-sans-serif)};
 }
+
+/* Page 404 — anciennement un <style> en ligne qui ciblait `.container` globalement */
+.error404 {
+  margin: 10px auto;
+  max-width: 600px;
+  text-align: center;
+
+  h1 {
+    margin: 30px 0;
+    font-size: 4em;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+}

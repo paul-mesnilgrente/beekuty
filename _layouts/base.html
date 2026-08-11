@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="fr"{% if page.url == '/' %} class="home-html"{% endif %}>
+<html lang="{{ site.lang | default: 'fr' }}"{% if page.url == '/' %} class="home-html"{% endif %}>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="favicon.ico" >
-    <link rel="icon" type="image/gif" href="animated_favicon1.gif" >
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/gif" href="/animated_favicon1.gif">
 
     <!-- Polices : préchargées car utilisées dès le premier rendu (titres + navigation) -->
     <link rel="preload" href="/assets/fonts/unicorns_are_awesome.woff2" as="font" type="font/woff2" crossorigin>
@@ -23,7 +23,17 @@
       <link href="/assets/lightbox2-2.11.4/css/lightbox.min.css" rel="stylesheet">
     {% endif %}
 
-    <title>{{ page.title }} | Bee Kuty</title>
+    {%- if page.noindex %}
+    <meta name="robots" content="noindex, follow">
+    {%- endif %}
+
+    {%- comment -%}
+      jekyll-seo-tag produit <title>, la meta description, le canonical et les
+      balises Open Graph. Le titre vaut « {page.title} | {site.title} », donc
+      `title:` porte le titre optimisé pour la recherche, pas le libellé de
+      navigation (celui-ci vit dans _includes/nav.html).
+    {%- endcomment -%}
+    {% seo %}
   </head>
   <body{% if page.url == '/' %} class="home-body"{% endif %}>
     {{ content }}

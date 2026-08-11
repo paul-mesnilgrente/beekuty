@@ -15,16 +15,40 @@
 # in the templates via {{ site.myvariable }}.
 title: BeeKuty
 email: karolanne.pelosato@gmail.com
+tagline: Institut de beauté et prothésie ongulaire
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  BeeKuty, institut de beauté : manucure, pose de gel, nail art, épilation,
+  soins du visage, beauté du regard et maquillage. Découvrez les prestations,
+  les tarifs et la galerie de réalisations.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-instagram_username: jekyllrb
+url: "https://beekuty.fr" # the base hostname & protocol for your site
+lang: fr
+
+# TODO (SEO local, étape 2) : renseigner l'adresse, le téléphone et les horaires.
+# Ils alimenteront le balisage JSON-LD, le pied de page et les titres localisés
+# ("Manucure à <ville>"), qui sont volontairement laissés sans ville pour l'instant.
+
+# Réseaux sociaux — utilisés par jekyll-seo-tag pour le balisage `sameAs`
+social:
+  name: BeeKuty
+  links:
+    - https://www.instagram.com/beekuty47/
+    - https://www.facebook.com/profile.php?id=61566957219807
+
+# Image par défaut pour les partages Facebook / WhatsApp / LinkedIn.
+# Passée par `defaults` : jekyll-seo-tag ne lit `image` que sur la page.
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/og-default.png
 
 # Build settings
 markdown: kramdown
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 sass:
   style: compressed
