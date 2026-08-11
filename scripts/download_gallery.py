@@ -43,6 +43,8 @@ from pathlib import Path
 import instaloader
 import requests
 
+from make_thumbnails import make_thumb
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 IMAGE_DIR = REPO_ROOT / "assets" / "images" / "instagram"
 GALLERY_JSON = REPO_ROOT / "_data" / "gallery.json"
@@ -60,13 +62,17 @@ if not USERNAME:
 
 
 def fetch_jpg(url: str, dest: Path) -> None:
-    """Download `url` to `dest` as a JPEG, skipping if it already exists."""
-    if dest.exists():
-        return
-    resp = requests.get(url, timeout=60)
-    resp.raise_for_status()
-    dest.write_bytes(resp.content)
-    print(f"  downloaded {dest.name}")
+    """Download `url` to `dest` as a JPEG, skipping if it already exists.
+
+    Always ensures the grid thumbnail exists, even when the JPEG was already
+    downloaded by an earlier run, so the two directories can't drift apart.
+    """
+    if not dest.exists():
+        resp = requests.get(url, timeout=60)
+        resp.raise_for_status()
+        dest.write_bytes(resp.content)
+        print(f"  downloaded {dest.name}")
+    make_thumb(dest)
 
 
 def best_image_url(media: dict) -> str:

@@ -1,13 +1,15 @@
 <li class="gallery__tile col-sm-12 col-md-6 col-lg-4 {% if include.index > 1 %}d-none{% endif %}">
-  <a href="/assets/images/instagram/{{ include.id }}.jpg" data-lightbox="gallery" data-imgage-alt="{{ include.caption }}">
+  <a href="/assets/images/instagram/{{ include.id }}.jpg" data-lightbox="gallery" data-imgage-alt="{{ include.caption | escape }}">
     <figure class="gallery__figure">
       <picture class="gallery__picture">
         <img
           width="1080"
           height="1080"
-          alt="{{ include.caption }}"
+          alt="{{ include.caption | escape }}"
           class="gallery__image"
-          src="/assets/images/instagram/{{ include.id }}.jpg"
+          loading="lazy"
+          decoding="async"
+          src="/assets/images/instagram/thumbs/{{ include.id }}.webp"
         >
       </picture>
       <figcaption class="gallery__caption">
