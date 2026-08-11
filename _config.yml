@@ -26,6 +26,10 @@ instagram_username: jekyllrb
 # Build settings
 markdown: kramdown
 
+sass:
+  style: compressed
+  sourcemap: never
+
 exclude:
 - README.md
 - Gemfile

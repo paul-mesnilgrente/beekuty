@@ -10,8 +10,10 @@
 
     <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
 
-    <!-- lightbox: https://lokeshdhakar.com/projects/lightbox2/ -->
-    <link href="/assets/lightbox2-2.11.4/css/lightbox.min.css" rel="stylesheet">
+    {% if page.lightbox %}
+      <!-- lightbox: https://lokeshdhakar.com/projects/lightbox2/ -->
+      <link href="/assets/lightbox2-2.11.4/css/lightbox.min.css" rel="stylesheet">
+    {% endif %}
 
     <title>{{ page.title }} | Bee Kuty</title>
   </head>
@@ -23,15 +25,18 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <!-- Masonry -->
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script src="https://unpkg.com/imagesloaded@4.1.4/imagesloaded.pkgd.min.js"></script>
+    {% if page.masonry %}
+      <!-- Masonry: auto-initialised on elements with data-masonry -->
+      <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    {% endif %}
 
-    <!-- lightbox: https://lokeshdhakar.com/projects/lightbox2/ -->
-    <script src="/assets/lightbox2-2.11.4/js/lightbox-plus-jquery.js"></script>
+    {% if page.lightbox %}
+      <!-- lightbox: https://lokeshdhakar.com/projects/lightbox2/ -->
+      <script src="/assets/lightbox2-2.11.4/js/lightbox-plus-jquery.min.js"></script>
+      <script src="/assets/js/gallery.js"></script>
+    {% endif %}
 
     <!-- Custom scripts -->
-    <script src="/assets/js/gallery.js"></script>
     <script src="/assets/js/modal_on_load.js"></script>
   </body>
 </html>
