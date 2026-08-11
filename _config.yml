@@ -42,3 +42,20 @@ exclude:
 - scripts
 - .env
 - .github
+# Sources non minifiées de lightbox2 : inutiles en production
+- assets/lightbox2-2.11.4/css/lightbox.css
+- assets/lightbox2-2.11.4/js/lightbox.js
+# Variante sans jQuery : le site charge lightbox-plus-jquery.min.js
+- assets/lightbox2-2.11.4/js/lightbox.min.js
+- assets/lightbox2-2.11.4/js/lightbox.min.map
+- assets/lightbox2-2.11.4/js/lightbox-plus-jquery.js
+- assets/lightbox2-2.11.4/js/lightbox-plus-jquery.min.map
+- assets/lightbox2-2.11.4/.github
+- assets/lightbox2-2.11.4/.editorconfig
+- assets/lightbox2-2.11.4/.gitignore
+- assets/lightbox2-2.11.4/.jscsrc
+- assets/lightbox2-2.11.4/.jshintrc
+# Sources des polices : conservées dans le dépôt, seul le WOFF2 est servi
+- assets/fonts/tahu.ttf
+- assets/fonts/unicorns_are_awesome.otf
+- assets/fonts/unicorns_are_awesome.ttf

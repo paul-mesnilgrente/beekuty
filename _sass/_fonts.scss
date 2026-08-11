@@ -1,10 +1,13 @@
+/* Un seul `src` par `@font-face` : une seconde déclaration écraserait la première
+   au lieu de servir de repli. Les formats se listent par ordre de préférence. */
 @font-face {
   font-family: 'unicorns';
-  src: url('../fonts/unicorns_are_awesome.ttf') format('truetype');
-  src: url('../fonts/unicorns_are_awesome.otf') format('opentype');
+  src: url('/assets/fonts/unicorns_are_awesome.woff2') format('woff2');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'tahu';
-  src: url('/assets/fonts/tahu.ttf') format('truetype');
+  src: url('/assets/fonts/tahu.woff2') format('woff2');
+  font-display: swap;
 }
