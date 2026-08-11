@@ -28,7 +28,10 @@ Run (repeat until it reports "complete"):
 Exit codes: 0 = gallery complete, 2 = throttled/partial (re-run to resume).
 
 It writes:
-    _data/gallery.json                      (same schema as before)
+    _data/gallery.json                      (adds an "alt" field per entry —
+                                             see scripts/caption.py; run
+                                             scripts/rebuild_gallery_alt.py to
+                                             regenerate it without downloading)
     assets/images/instagram/<id>.jpg        (one file per rendered image)
     _data/.gallery_progress.json            (resume state; git-ignored)
 """
@@ -43,6 +46,7 @@ from pathlib import Path
 import instaloader
 import requests
 
+from caption import caption_to_alt
 from make_thumbnails import make_thumb
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -105,6 +109,7 @@ def build_entry(item: dict) -> dict:
             "id": media_id,
             "media_type": "CAROUSEL_ALBUM",
             "caption": caption,
+            "alt": caption_to_alt(caption),
             "timestamp": timestamp,
             "media_url": children[0]["media_url"] if children else "",
             "children": children,
@@ -118,6 +123,7 @@ def build_entry(item: dict) -> dict:
         "id": media_id,
         "media_type": "IMAGE",
         "caption": caption,
+        "alt": caption_to_alt(caption),
         "timestamp": timestamp,
         "media_url": url,
     }

@@ -1,11 +1,18 @@
 <li class="gallery__tile col-sm-12 col-md-6 col-lg-4 {% if include.index > 1 %}d-none{% endif %}">
-  <a href="/assets/images/instagram/{{ include.id }}.jpg" data-lightbox="gallery" data-imgage-alt="{{ include.caption | escape }}">
+  {%- comment -%}
+    `alt` reprend la description courte calculée par scripts/caption.py : la
+    légende brute contient des emoji et des hashtags, illisibles à l'oreille.
+    `data-alt` est l'attribut que lightbox2 lit réellement (l'ancien
+    `data-imgage-alt` était une coquille et n'était jamais interprété).
+  {%- endcomment -%}
+  {%- assign tile_alt = include.alt | default: include.caption -%}
+  <a href="/assets/images/instagram/{{ include.id }}.jpg" data-lightbox="gallery" data-alt="{{ tile_alt | escape }}">
     <figure class="gallery__figure">
       <picture class="gallery__picture">
         <img
           width="1080"
           height="1080"
-          alt="{{ include.caption | escape }}"
+          alt="{{ tile_alt | escape }}"
           class="gallery__image"
           loading="lazy"
           decoding="async"

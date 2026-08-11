@@ -13,18 +13,18 @@ description: >-
         <div class="offset-md-2 col-md-8">
           <input type="hidden" name="_language" value="fr" />
 
-          <div class="form-group">
+          <div class="mb-3">
             <label class="contact__label" for="name">Nom/Prénom</label>
-            <input type="name" class="form-control" id="email" aria-describedby="nom et prénom" name="name" required>
+            <input type="text" class="form-control" id="name" name="name" autocomplete="name" required>
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label class="contact__label" for="email">Adresse email</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" autocomplete="email" required>
             <small id="emailHelp" class="form-text text-muted">Cette adresse email ne sera jamais partagée.</small>
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label class="contact__label" for="message">Message</label>
-            <textarea type="password" class="form-control" id="message" name="message" rows="6" required></textarea>
+            <textarea class="form-control" id="message" name="message" rows="6" required></textarea>
           </div>
 
           <div class="my-2 g-recaptcha" data-sitekey="6LfwqtIZAAAAALnU9OrBleanMX0b-Sv8dWpx0vvn"></div>
@@ -38,11 +38,13 @@ description: >-
     <div class="col-12">
       <!-- https://console.cloud.google.com/google/maps-apis/credentials to manage the API keys-->
       <iframe
-        title="Carte pointé avec l'adresse de BeeKuty"
+        title="Carte pointée sur l'adresse de BeeKuty"
         class="w-100"
         width="450"
         height="250"
         frameborder="0"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
         id="map"
         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCHlO2s0aRrqxPAJpT2RH_i8km-oeKGeH8&q=place_id:ChIJlQ6lmzOpqxIReQqbsLR7sUg&zoom=12&language=fr&region=FR"
         allowfullscreen
@@ -52,4 +54,4 @@ description: >-
 </main>
 
 <!-- recaptcha https://www.google.com/recaptcha/admin -->
-<script src="https://www.google.com/recaptcha/api.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
